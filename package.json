@@ -1,0 +1,19 @@
+{
+  "name": "blueprintcs-live",
+  "version": "1.0.0",
+  "description": "Event day site for BlueprintCS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsdcses/blueprintcs-live.git"
+  },
+  "author": "CSES",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsdcses/blueprintcs-live/issues"
+  },
+  "homepage": "https://github.com/ucsdcses/blueprintcs-live#readme"
+}
