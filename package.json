@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gulp && firebase deploy",
-    "dev": "gulp serve"
+    "dev": "gulp serve",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,6 @@
   },
   "homepage": "https://github.com/ucsdcses/blueprintcs-live#readme",
   "devDependencies": {
-    "autoprefixer": "^8.4.1",
     "browser-sync": "^2.24.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
@@ -28,8 +28,6 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify-es": "^1.0.1",
     "gulp-uglifycss": "^1.0.9",
-    "node-sass": "^4.9.0",
-    "npm-run-all": "^4.1.2",
-    "postcss-cli": "^5.0.0"
+    "node-sass": "^4.9.0"
   }
 }
