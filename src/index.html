@@ -21,7 +21,7 @@
         <img class="nav-logo" src="assets/img/nav_logo.jpg">
         <section id="countdown">
           <h1>Countdown</h1>
-          <countdown class="countdown" :time="time" tag="ul">
+          <countdown class="countdown" :time="time">
             <template slot-scope="props">
               <li>{{ props.days }}<br/>Days</li>
               <li>{{ props.hours }}<br/>Hours</li>
