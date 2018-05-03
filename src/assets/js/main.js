@@ -2,7 +2,7 @@ import Vue from 'vue';
 import countdown from '@xkeshi/vue-countdown'
 
 new Vue({
-    el: '#app',
+    el: '#nav',
     components: {
         'countdown': countdown
     },

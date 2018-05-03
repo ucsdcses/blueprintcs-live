@@ -10,6 +10,8 @@ body
     font-family: Roboto, Helvetica, Arial, sans-serif
     margin: 0
     padding: 0
+
+#app
     display: grid
     grid: "nav main" / 300px 1fr
     grid-gap: 0
@@ -21,7 +23,6 @@ nav
     max-width: 17rem
     color: white
     overflow-y: scroll
-
     h1
         padding-left: 1.5rem
         text-transform: uppercase
@@ -40,4 +41,7 @@ nav
     max-width: 100%
 
 main
+    margin-top: 2rem
     grid-area: main
+    h1
+        text-align: center
