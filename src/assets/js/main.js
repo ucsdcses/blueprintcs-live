@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import countdown from '@xkeshi/vue-countdown'
+import countdown from './components/countdown';
 
 new Vue({
     el: '#nav',

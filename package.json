@@ -25,7 +25,6 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglifycss": "^1.0.9",
     "node-sass": "^4.9.0",
     "webpack": "^4.6.0",
@@ -33,7 +32,6 @@
     "webpack-stream": "^4.0.3"
   },
   "dependencies": {
-    "@xkeshi/vue-countdown": "^0.6.0",
     "vue": "^2.5.16"
   }
 }

@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const path = require('path');
 const sync = require('browser-sync').create();
-const sourcemaps = require('gulp-sourcemaps');
 
 const webpack = require('webpack');
 const webpack_stream = require('webpack-stream');
@@ -23,11 +22,9 @@ const IMG_SRC = path.join(ASSETS_SRC, 'img', '*.+(png|jpg)');
 
 gulp.task('css', () => {
     return gulp.src(SASS_SRC)
-        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(uglifyCSS())
-        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(ASSETS_DST,'css')))
         .pipe(sync.reload({
             stream: true
@@ -36,9 +33,7 @@ gulp.task('css', () => {
 
 gulp.task('js', () => {
     return gulp.src(path.join(JS_SRC, 'main.js'))
-        .pipe(sourcemaps.init())
         .pipe(webpack_stream(webpack_config, webpack))
-        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(ASSETS_DST,'js/')))
         .pipe(sync.reload({
             stream: true
