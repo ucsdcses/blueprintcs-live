@@ -1,20 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
-// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-// // The Firebase SDK is initialized and available here!
-//
-// firebase.auth().onAuthStateChanged(user => { });
-// firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-// firebase.messaging().requestPermission().then(() => { });
-// firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-//
-// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+import Vue from 'vue';
+import countdown from '@xkeshi/vue-countdown'
 
-    try {
-      let app = firebase.app();
-      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-    } catch (e) {
-      console.error(e);
-      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+new Vue({
+    el: '#app',
+    components: {
+        'countdown': countdown
+    },
+    data() {
+        let now = new Date();
+        let endTime = new Date('5/13/2018 22:00 GMT-0700');
+
+        return {
+            counting: false,
+            time: endTime - now
+        };
+    },
+    methods: {
+        countdown() {
+            this.counting = true;
+        },
+        countdownEnd() {
+            this.counting = false;
+        }
     }
 });

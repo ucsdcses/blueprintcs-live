@@ -3,7 +3,9 @@ const path = require('path');
 const sync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 
-const uglifyJS = require('gulp-uglify-es').default;
+const webpack = require('webpack');
+const webpack_stream = require('webpack-stream');
+const webpack_config = require('./webpack.config.js');
 
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
@@ -15,8 +17,9 @@ const DST = 'public';
 const ASSETS_SRC = path.join(SRC, 'assets');
 const ASSETS_DST = path.join(DST, 'assets');
 
-const SASS_SRC = path.join(ASSETS_SRC, '*.+(scss|sass)');
-const JS_SRC = path.join(ASSETS_SRC, 'js/*.js');
+const SASS_SRC = path.join(ASSETS_SRC, 'sass', '*.+(scss|sass)');
+const JS_SRC = path.join(ASSETS_SRC, 'js');
+const IMG_SRC = path.join(ASSETS_SRC, 'img', '*.+(png|jpg)');
 
 gulp.task('css', () => {
     return gulp.src(SASS_SRC)
@@ -32,14 +35,15 @@ gulp.task('css', () => {
 });
 
 gulp.task('js', () => {
-    return gulp.src(JS_SRC)
+    return gulp.src(path.join(JS_SRC, 'main.js'))
         .pipe(sourcemaps.init())
-        .pipe(uglifyJS())
+        .pipe(webpack_stream(webpack_config, webpack))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.join(ASSETS_DST,'js/')))
         .pipe(sync.reload({
             stream: true
         }));
+    return;
 });
 
 gulp.task('html', () => {
@@ -50,7 +54,15 @@ gulp.task('html', () => {
         }));
 });
 
-gulp.task('serve', ['css', 'js', 'html'], () => {
+gulp.task('img', () => {
+    return gulp.src(IMG_SRC)
+        .pipe(gulp.dest(path.join(ASSETS_DST, 'img')))
+        .pipe(sync.reload({
+            stream: true
+        }));
+});
+
+gulp.task('serve', ['css', 'js', 'html', 'img'], () => {
     sync.init({
         server: {
             baseDir: DST
@@ -58,10 +70,12 @@ gulp.task('serve', ['css', 'js', 'html'], () => {
     });
 
     gulp.watch(SASS_SRC, ['css']);
-    gulp.watch(JS_SRC, ['js']);
+    gulp.watch(path.join(JS_SRC, 'main.js'), ['js']);
+    gulp.watch(path.join(JS_SRC, 'components', '*.js'), ['js']);
     gulp.watch(path.join(SRC, '*.html'), ['html']);
+    gulp.watch(IMG_SRC, ['img']);
 });
 
-gulp.task('default', ['css', 'js', 'html'], () => {
+gulp.task('default', ['css', 'js', 'html', 'img'], () => {
     return;
 });
