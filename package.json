@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gulp && firebase deploy",
-    "dev": "gulp serve",
+    "dev": "NODE_ENV=development gulp serve",
     "build": "gulp"
   },
   "repository": {
