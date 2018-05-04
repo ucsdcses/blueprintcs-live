@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import countdown from './components/countdown';
+import navbar from './components/navbar';
 
 new Vue({
     el: '#nav',
     components: {
-        'countdown': countdown
+        'countdown': countdown,
+        'navbar': navbar
     },
     data() {
         let now = new Date();

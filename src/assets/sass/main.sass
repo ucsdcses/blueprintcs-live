@@ -19,6 +19,8 @@ body
 nav
     background: $blue
     grid-area: nav
+    display: flex
+    flex-direction: column
     height: 100vh
     max-width: 17rem
     color: white
@@ -38,10 +40,55 @@ nav
         background: $darkblue
 
 .nav-logo
-    max-width: 100%
+    max-width: 17rem
 
 main
     margin-top: 2rem
     grid-area: main
     h1
         text-align: center
+
+.hidden-desktop
+    display: none
+
+.nav-expand
+    margin: 1.25rem 2rem 0 auto
+    height: 2.5em
+    width: 3.4em
+    border: 1px solid white
+    border-radius: 3px
+
+.hamburger
+    position: relative
+    top: -0.2em
+    left: 0.85em
+
+    &:before
+        content: ""
+        display: inline-block
+        width: 1.7em
+        height: 0.1em
+        background: white
+        box-shadow: 0 0.5em 0 0 white, 0 1em 0 0 white
+
+@media screen and (max-width: 768px)
+
+    #app
+        grid: [row1-start] "nav" [row1-end] [row2-start] "main" [row2-end]
+
+    nav
+        height: auto
+        max-width: 100%
+        header
+            display: flex
+            width: 100%
+            flex-shrink: 0
+
+    .nav-logo
+        max-height: 5rem
+
+    .hidden-desktop
+        display: block
+
+    .hidden-mobile
+        height: 0
