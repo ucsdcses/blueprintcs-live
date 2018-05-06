@@ -1,3 +1,4 @@
+<script>
 const MS_SECOND = 1000;
 const MS_MINUTE = 60 * MS_SECOND;
 const MS_HOUR = 60 * MS_MINUTE;
@@ -130,62 +131,24 @@ export default {
     /**
      * Start to countdown.
      * @public
-     * @emits Countdown#countdownstart
      */
     start() {
       if (this.counting) {
         return;
       }
 
-      /**
-       * Countdown start event.
-       * @event Countdown#countdownstart
-       */
-      this.$emit('countdownstart');
-
       this.counting = true;
       this.step();
     },
 
     /**
-     * Pause countdown.
-     * @public
-     * @emits Countdown#countdownpause
-     */
-    pause() {
-      if (!this.counting) {
-        return;
-      }
-
-      /**
-       * Countdown pause event.
-       * @event Countdown#countdownpause
-       */
-      this.$emit('countdownpause');
-
-      this.counting = false;
-    },
-
-    /**
      * Step to countdown.
      * @private
-     * @emits Countdown#countdownprogress
      */
     step() {
       if (!this.counting) {
         return;
       }
-
-      /**
-       * Countdown progress event.
-       * @event Countdown#countdownprogress
-       */
-      this.$emit('countdownprogress', {
-        days: this.days,
-        hours: this.hours,
-        minutes: this.minutes,
-        seconds: this.seconds,
-      });
 
       if (this.count > 0) {
 
@@ -193,6 +156,7 @@ export default {
           this.count -= MS_SECOND;
           this.step();
         }, MS_SECOND);
+
       } else {
         this.count = 0;
         this.stop();
@@ -202,17 +166,10 @@ export default {
     /**
      * Stop the countdown.
      * @public
-     * @emits Countdown#countdownend
      */
     stop() {
       this.counting = false;
       this.timeout = undefined;
-
-      /**
-       * Countdown end event.
-       * @event Countdown#countdownend
-       */
-      this.$emit('countdownend');
     },
 
     /**
@@ -226,3 +183,4 @@ export default {
     },
   },
 };
+</script>

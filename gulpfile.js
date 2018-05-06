@@ -34,7 +34,7 @@ gulp.task('css', () => {
 gulp.task('js', () => {
     return gulp.src(path.join(JS_SRC, 'main.js'))
         .pipe(webpack_stream(webpack_config, webpack))
-        .pipe(gulp.dest(path.join(ASSETS_DST,'js/')))
+        .pipe(gulp.dest(DST))
         .pipe(sync.reload({
             stream: true
         }));
