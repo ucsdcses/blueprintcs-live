@@ -21,10 +21,12 @@ export default {
       type: String,
       required: true
     },
+
     href: {
       type: String,
       required: true
     },
+
     internal: {
       type: Boolean,
       default: false
@@ -37,3 +39,25 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  @import '../../sass/global'
+
+  a
+    display: block
+    text-decoration: none
+    color: $offwhite
+    vertical-align: center
+    padding: 0.75rem 0 0.75rem 1.5rem
+    font-size: 1.25rem
+
+    &:hover
+      background-color: $darkblue
+
+    &:visited
+      color: $offwhite
+
+    svg
+      float: right
+      margin-right: 1.5rem
+</style>

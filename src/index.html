@@ -16,32 +16,26 @@
   </head>
 
   <body>
-    <div id="app">
-      <navbar id="nav">
-        <img slot="header" class="nav-logo" src="assets/img/nav_logo.jpg">
-        <nav-section name="countdown">
-          <countdown class="countdown" :time="countdown.time">
-            <template slot-scope="props">
-              <li>{{ props.days }}<br/>Days</li>
-              <li>{{ props.hours }}<br/>Hours</li>
-              <li>{{ props.minutes }}<br/>Minutes</li>
-              <li>{{ props.seconds }}<br/>Seconds</li>
-            </template>
-          </countdown>
-        </nav-section>
-        <nav-section name="general">
-          <nav-link v-for="(link, idx) in navLink.links"
-            :key="'nav' + idx"
-            :name="link.name"
-            :href="link.href"
-            :internal="link.internal">
-          </nav-link>
-        </nav-section>
-      </navbar>
-      <main id="main">
-        <h1>Welcome to BlueprintCS 2018!</h1>
-      </main>
-    </div>
+    <navbar id="nav">
+      <img slot="header" class="nav-logo" src="assets/img/nav_logo.jpg">
+      <nav-section name="countdown">
+        <countdown :time="countdown.time" />
+      </nav-section>
+      <nav-section name="general">
+        <nav-link v-for="(link, idx) in navLink.links"
+          :key="'nav' + idx"
+          :name="link.name"
+          :href="link.href"
+          :internal="link.internal" />
+      </nav-section>
+    </navbar>
+    <main id="main">
+      <h1>Welcome to BlueprintCS 2018!</h1>
+      <main-section name="schedule">
+        <schedule :items="schedule.items" />
+      </main-section>
+    </main>
+
     <script type="text/javascript" src="/main.js"></script>
   </body>
 

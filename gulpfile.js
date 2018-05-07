@@ -65,7 +65,7 @@ gulp.task('serve', ['css', 'js', 'html', 'img'], () => {
     });
 
     gulp.watch(SASS_SRC, ['css']);
-    gulp.watch(path.join(JS_SRC, 'main.js'), ['js']);
+    gulp.watch([path.join(JS_SRC, '*.js'), path.join(JS_SRC, 'components', '*.vue')], ['js']);
     gulp.watch(path.join(JS_SRC, 'components', '*.js'), ['js']);
     gulp.watch(path.join(SRC, '*.html'), ['html']);
     gulp.watch(IMG_SRC, ['img']);

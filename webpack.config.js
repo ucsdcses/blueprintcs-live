@@ -24,12 +24,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              indentedSyntax: true
-            }
-          }
+          'sass-loader?indentedSyntax=1'
         ]
       }
     ]

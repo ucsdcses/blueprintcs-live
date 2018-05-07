@@ -1,8 +1,15 @@
+<template>
+  <ul>
+    <li><span class="count">{{ hours }}</span><br/>Hours</li>
+    <li><span class="count">{{ minutes }}</span><br/>Minutes</li>
+    <li><span class="count">{{ seconds }}</span><br/>Seconds</li>
+  </ul>
+</template>
+
 <script>
 const MS_SECOND = 1000;
 const MS_MINUTE = 60 * MS_SECOND;
 const MS_HOUR = 60 * MS_MINUTE;
-const MS_DAY = 24 * MS_HOUR;
 
 export default {
   data() {
@@ -48,48 +55,17 @@ export default {
   },
 
   computed: {
-    /**
-     * Remaining days.
-     * @returns {number}
-     */
-    days() {
-      return Math.floor(this.count / MS_DAY);
-    },
-
-    /**
-     * Remaining hours.
-     * @returns {number}
-     */
     hours() {
-      return Math.floor((this.count % MS_DAY) / MS_HOUR);
+      return Math.floor(this.count / MS_HOUR);
     },
 
-    /**
-     * Remaining minutes.
-     * @returns {number}
-     */
     minutes() {
       return Math.floor((this.count % MS_HOUR) / MS_MINUTE);
     },
 
-    /**
-     * Remaining seconds.
-     * @returns {number}
-     */
     seconds() {
       return Math.floor((this.count % MS_MINUTE) / MS_SECOND);
     },
-  },
-
-  render(createElement) {
-    return createElement('ul', this.$scopedSlots.default ? [
-      this.$scopedSlots.default({
-        days: this.days,
-        hours: this.hours,
-        minutes: this.minutes,
-        seconds: this.seconds,
-      }),
-    ] : this.$slots.default);
   },
 
   created() {
@@ -129,7 +105,7 @@ export default {
     },
 
     /**
-     * Start to countdown.
+     * Start countdown.
      * @public
      */
     start() {
@@ -184,3 +160,22 @@ export default {
   },
 };
 </script>
+
+<style lang="sass" scoped>
+  @import '../../sass/global'
+
+  ul
+    display: flex
+    justify-content: space-around
+    margin: 0
+    padding: 1rem 0
+    list-style: none
+    text-align: center
+    background: $darkblue
+
+  li
+    line-height: 2em
+
+  .count
+    font-size: 1.5em
+</style>
