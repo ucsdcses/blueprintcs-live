@@ -1,76 +1,95 @@
+// General deps
 const gulp = require('gulp');
 const path = require('path');
 const sync = require('browser-sync').create();
 
+// JS deps
 const webpack = require('webpack');
 const webpack_stream = require('webpack-stream');
 const webpack_config = require('./webpack.config.js');
 
+// CSS deps
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const uglifyCSS = require('gulp-uglifycss');
 
-const SRC = 'src';
-const DST = 'public';
+// All file paths
+const paths = {
+    source: {
+        base: 'src',
+        get assets() { return path.join(this.base, 'assets') },
+        get html() { return path.join(this.base, '*.html') },
+        get sass() { return path.join(this.assets, 'sass', '*.+(scss|sass)') },
+        get entry() { return path.join(this.assets, 'js', 'main.js') },
+        get js() { return path.join(this.assets, 'js', '*.js') },
+        get components() { return path.join(this.assets, 'js', 'components', '*.+(vue|js)') },
+        get img() { return path.join(this.assets, 'img', '*.+(png|jpg)') }
+    },
+    dist: {
+        base: 'public',
+        get assets() { return path.join(this.base, 'assets') },
+        get html() { return this.base },
+        get css() { return path.join(this.assets, 'css') },
+        get js() { return this.base },
+        get img() { return path.join(this.assets, 'img') }
+    }
+};
 
-const ASSETS_SRC = path.join(SRC, 'assets');
-const ASSETS_DST = path.join(DST, 'assets');
-
-const SASS_SRC = path.join(ASSETS_SRC, 'sass', '*.+(scss|sass)');
-const JS_SRC = path.join(ASSETS_SRC, 'js');
-const IMG_SRC = path.join(ASSETS_SRC, 'img', '*.+(png|jpg)');
-
-gulp.task('css', () => {
-    return gulp.src(SASS_SRC)
+function css() {
+    return gulp.src(paths.source.sass)
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(uglifyCSS())
-        .pipe(gulp.dest(path.join(ASSETS_DST,'css')))
+        .pipe(gulp.dest(paths.dist.css))
         .pipe(sync.reload({
             stream: true
         }));
-});
+}
+const css_task = gulp.task(css);
 
-gulp.task('js', () => {
-    return gulp.src(path.join(JS_SRC, 'main.js'))
+function js() {
+    return gulp.src(paths.source.entry)
         .pipe(webpack_stream(webpack_config, webpack))
-        .pipe(gulp.dest(DST))
+        .pipe(gulp.dest(paths.dist.js))
         .pipe(sync.reload({
             stream: true
         }));
-    return;
-});
+}
+const js_task = gulp.task(js);
 
-gulp.task('html', () => {
-    return gulp.src(path.join(SRC, '*.html'))
-        .pipe(gulp.dest(DST))
+function html() {
+    return gulp.src(paths.source.html)
+        .pipe(gulp.dest(paths.dist.base))
         .pipe(sync.reload({
             stream: true
         }));
-});
+}
+const html_task = gulp.task(html);
 
-gulp.task('img', () => {
-    return gulp.src(IMG_SRC)
-        .pipe(gulp.dest(path.join(ASSETS_DST, 'img')))
+function img() {
+    return gulp.src(paths.source.img)
+        .pipe(gulp.dest(paths.dist.img))
         .pipe(sync.reload({
             stream: true
         }));
-});
+}
+const img_task = gulp.task(img);
 
-gulp.task('serve', ['css', 'js', 'html', 'img'], () => {
+
+function init_watch() {
     sync.init({
         server: {
-            baseDir: DST
+            baseDir: paths.dist.base
         }
     });
 
-    gulp.watch(SASS_SRC, ['css']);
-    gulp.watch([path.join(JS_SRC, '*.js'), path.join(JS_SRC, 'components', '*.vue')], ['js']);
-    gulp.watch(path.join(JS_SRC, 'components', '*.js'), ['js']);
-    gulp.watch(path.join(SRC, '*.html'), ['html']);
-    gulp.watch(IMG_SRC, ['img']);
-});
+    gulp.watch(paths.source.sass, css_task);
+    gulp.watch([paths.source.js, paths.source.components], js_task);
+    gulp.watch(paths.source.html, html_task);
+    gulp.watch(paths.source.img, img_task);
+}
 
-gulp.task('default', ['css', 'js', 'html', 'img'], () => {
-    return;
-});
+const preReqs = gulp.parallel(css, js, html, img);
+gulp.task('serve', gulp.series(preReqs, init_watch));
+
+gulp.task('default', preReqs);
