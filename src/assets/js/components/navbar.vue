@@ -35,6 +35,7 @@ export default {
     grid-area: nav
     display: flex
     flex-direction: column
+    position: fixed
     height: 100vh
     max-width: 17rem
     color: $offwhite
@@ -68,6 +69,7 @@ export default {
       height: auto
       max-width: 100%
       overflow-y: hidden
+      position: static
 
       header
         display: flex

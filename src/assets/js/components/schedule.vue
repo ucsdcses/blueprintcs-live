@@ -1,11 +1,11 @@
 <template>
-    <table>
-        <tr v-for="(row, idx) in items" :key="'sched' + idx">
-            <td>{{ row.start }} - {{ row.end }}</td>
-            <td><b>{{ row.title }}</b></td>
-            <td>{{ row.location }}</td>
-        </tr>
-    </table>
+    <ul>
+        <li v-for="(row, idx) in items" :key="'sched' + idx">
+            <span>{{ row.start }} - {{ row.end }}</span>
+            <span><b>{{ row.title }}</b></span>
+            <span>{{ row.location }}</span>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -20,18 +20,37 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-table
-    width: 95%
-    margin-left: auto
-    margin-right: auto
+@import '../../sass/global'
+ul
+    list-style: none
+    padding-left: 1rem
+    padding-right: 1rem
+    width: 100%
     font-size: 1rem
 
-tr
+li
     line-height: 2.5em
+    display: flex
+    justify-content: space-between
 
-td
-    &:first-child
-        width: 25%
-    &:last-child
-        width: 20%
+span
+    display: block
+
+@media screen and (max-width: 576px)
+
+    li
+        flex-wrap: wrap
+        align-items: center
+        line-height: 1.5em
+        width: fit-content
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 1.5rem
+        padding: 5px 3px
+
+    span
+        &:nth-child(2)
+            order: -1
+            flex: 1 0 100%
+            text-align: center
 </style>

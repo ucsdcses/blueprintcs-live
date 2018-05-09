@@ -83,10 +83,10 @@ function init_watch() {
         }
     });
 
-    gulp.watch(paths.source.sass, css_task);
-    gulp.watch([paths.source.js, paths.source.components], js_task);
-    gulp.watch(paths.source.html, html_task);
-    gulp.watch(paths.source.img, img_task);
+    gulp.watch(paths.source.sass, css);
+    gulp.watch([paths.source.js, paths.source.components], js);
+    gulp.watch(paths.source.html, html);
+    gulp.watch(paths.source.img, img);
 }
 
 const preReqs = gulp.parallel(css, js, html, img);

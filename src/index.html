@@ -31,8 +31,12 @@
     </navbar>
     <main id="main">
       <h1>Welcome to BlueprintCS 2018!</h1>
-      <main-section name="schedule">
+      <main-section name="schedule" full>
         <schedule :items="schedule.items" />
+      </main-section>
+      <main-section name="everything_else" :items="['shirt colors', 'prizes']">
+        <div slot="shirt colors"></div>
+        <div slot="prizes"></div>
       </main-section>
     </main>
 

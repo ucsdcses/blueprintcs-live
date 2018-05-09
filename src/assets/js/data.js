@@ -2,11 +2,20 @@ export default {
   eventEndTime: new Date('5/13/2018 22:00 GMT-0700'),
   navLinks: [
     { 'name': 'Home',
-      'href': '/',
+      'href': '#',
       'internal': true },
 
     { 'name': 'Slack',
-      'href': 'https://slack.com' }
+      'href': 'https://blueprintcs.slack.com' },
+
+    { 'name': 'Join Slack',
+      'href': 'https://blueprintcs.slack.com' },
+
+    { 'name': 'Submission',
+      'href': '#' },
+
+    { 'name': 'Project Examples',
+      'href': '#' }
   ],
   schedule: [
     { 'start': '9:00am',
