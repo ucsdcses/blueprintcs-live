@@ -5,8 +5,10 @@ import countdown from './components/countdown.vue';
 import navbar from './components/navbar.vue';
 import navSection from './components/navSection.vue';
 import navLink from './components/navLink.vue';
-import mainSection from './components/mainSection.vue';
+import box from './components/box.vue';
 import schedule from './components/schedule.vue';
+import prizes from './components/prizes.vue';
+import shirts from './components/shirts.vue';
 
 const nav = new Vue({
     el: '#nav',
@@ -34,14 +36,16 @@ const nav = new Vue({
 const main = new Vue({
     el: '#main',
     components: {
-        'mainSection': mainSection,
-        'schedule': schedule
+        'box': box,
+        'schedule': schedule,
+        'prizes': prizes,
+        'shirts': shirts
     },
     data() {
         return {
-            schedule: {
-                items: site_data.schedule
-            }
+            schedule: site_data.schedule,
+            prizes: site_data.prizes,
+            shirts: site_data.shirts
         };
     }
 });

@@ -16,14 +16,46 @@ body
     grid: "nav main" / 17rem 1fr
     grid-gap: 0
 
+.hidden-desktop
+    display: none
+
 main
     margin: 2rem 1rem 0 1rem
     grid-area: main
+    section
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-around
+        align-items: flex-start
+        align-content: flex-start
     h1
         text-align: center
 
-.hidden-desktop
-    display: none
+
+    ul
+        list-style: none
+        width: 100%
+        font-size: 1rem
+        padding-left: 5rem
+        padding-right: 5rem
+
+        li
+            line-height: 2.5em
+            display: flex
+            justify-content: space-between
+
+            span
+                display: block
+
+            .title
+                font-weight: bold
+
+@media screen and (max-width: 992px)
+
+    .tri-col
+        padding-left: 1rem
+        padding-right: 1rem
+
 
 @media screen and (max-width: 768px)
 
@@ -35,3 +67,23 @@ main
 
     .hidden-mobile
         height: 0
+
+@media screen and (max-width: 576px)
+
+    ul.tri-col
+        li
+            flex-wrap: wrap
+            align-items: center
+            line-height: 1.5em
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 1.5rem
+            padding: 5px 3px
+
+            span
+                text-align: center
+
+            .title
+                order: -1
+                flex: 1 0 100%
+
