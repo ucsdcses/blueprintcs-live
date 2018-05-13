@@ -83,9 +83,9 @@ function init_watch() {
         }
     });
 
-    gulp.watch(paths.source.sass, css);
+    gulp.watch([paths.source.sass, paths.source.components], css);
     gulp.watch([paths.source.js, paths.source.components], js);
-    gulp.watch(paths.source.html, html);
+    gulp.watch([paths.source.html, paths.source.components], html);
     gulp.watch(paths.source.img, img);
 }
 
