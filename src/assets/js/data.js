@@ -12,7 +12,10 @@ export default {
       'href': 'http://bit.ly/submitblueprint' },
 
     { 'name': 'Document Examples',
-      'href': 'https://drive.google.com/drive/folders/1sLry2UPmM75EAUTkdj1S5CVvdMpvcA6g?usp=sharing' }
+      'href': 'https://drive.google.com/drive/folders/1sLry2UPmM75EAUTkdj1S5CVvdMpvcA6g?usp=sharing' },
+
+    { 'name': 'Opening Slides',
+      'href': 'https://drive.google.com/file/d/1Of_MtpuXgu9EU5HDJ2Ptey3e1fSUnroc/view?usp=sharing' }
   ],
 
   schedule: [
@@ -118,7 +121,7 @@ export default {
       'name': 'Submission',
       'href': 'http://bit.ly/submitblueprint'
     },
-    guidelines: ['Complete at least three of the required docs', 'Zip them up into a .zip file', 'Fill out the submission form' ]
+    guidelines: ['Complete your mockups or wireframes', 'Complete at least two required minor documents', 'Zip everything up into a .zip file', 'Fill out the submission form' ]
   }
 };
 
