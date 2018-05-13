@@ -19,6 +19,7 @@ const paths = {
         base: 'src',
         get assets() { return path.join(this.base, 'assets') },
         get html() { return path.join(this.base, '*.html') },
+        get favicon() { return path.join(this.base, 'favicon.ico') },
         get sass() { return path.join(this.assets, 'sass', '*.+(scss|sass)') },
         get entry() { return path.join(this.assets, 'js', 'main.js') },
         get js() { return path.join(this.assets, 'js', '*.js') },
@@ -75,6 +76,15 @@ function img() {
 }
 const img_task = gulp.task(img);
 
+function favicon() {
+    return gulp.src(paths.source.favicon)
+        .pipe(gulp.dest(paths.dist.base))
+        .pipe(sync.reload({
+            stream: true
+        }));
+}
+const favicon_task = gulp.task(favicon);
+
 
 function init_watch() {
     sync.init({
@@ -86,10 +96,11 @@ function init_watch() {
     gulp.watch([paths.source.sass, paths.source.components], css);
     gulp.watch([paths.source.js, paths.source.components], js);
     gulp.watch([paths.source.html, paths.source.components], html);
+    gulp.watch(paths.source.favicon, favicon);
     gulp.watch(paths.source.img, img);
 }
 
-const preReqs = gulp.parallel(css, js, html, img);
+const preReqs = gulp.parallel(css, js, html, favicon, img);
 gulp.task('serve', gulp.series(preReqs, init_watch));
 
 gulp.task('default', preReqs);
