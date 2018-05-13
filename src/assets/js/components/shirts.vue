@@ -1,7 +1,7 @@
 <template>
   <list
     :name="name"
-    :listClass="['tri-col', 'shirtlist']"
+    listClass="dual-col"
     :items="shirts"
     :classes="classes" />
 </template>
@@ -38,20 +38,22 @@ export default {
 </script>
 
 <style lang="sass">
+@import '../../sass/global'
 
 .blue
-  color: blue
+  color: $blue
 
 .gray
-  color: gray
+  color: #666666
 
 .red
-  color: red
+  color: #B3151E
 
 .person, .color
   text-transform: capitalize
+  font-size: 1.25em
 
-.shirtlist
+.color
   font-weight: bold
 
 </style>

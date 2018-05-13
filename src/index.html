@@ -5,13 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BlueprintCS Live 2018</title>
-
-    <!-- update the version number as needed -->
-    <!-- <script defer src="/__/firebase/4.13.0/firebase-app.js"></script> -->
-    <!-- <script defer src="/__/firebase/4.13.0/firebase-database.js"></script> -->
-    <!-- initialize the SDK after all desired features are loaded -->
-    <!-- <script defer src="/__/firebase/init.js"></script> -->
-
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
   </head>
 
@@ -21,7 +14,7 @@
       <nav-section name="countdown">
         <countdown :time="countdown.time" />
       </nav-section>
-      <nav-section name="general">
+      <nav-section name="links">
         <nav-link v-for="(link, idx) in navLink.links"
           :key="'nav' + idx"
           :name="link.name"
@@ -34,6 +27,12 @@
       <section>
         <box name="shirt colors">
           <shirts :shirts="shirts" />
+        </box>
+        <box name="document examples">
+          <linklist :links="projects" />
+        </box>
+        <box name="submission">
+          <submission :guidelines="submission.guidelines" :link="submission.link" />
         </box>
         <box name="prizes">
           <prizes :prizes="prizes" />

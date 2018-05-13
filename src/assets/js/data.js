@@ -9,10 +9,10 @@ export default {
       'href': 'https://blueprintcs.slack.com/signup' },
 
     { 'name': 'Submission',
-      'href': '#' },
+      'href': 'http://bit.ly/submitblueprint' },
 
-    { 'name': 'Project Examples',
-      'href': '#' }
+    { 'name': 'Document Examples',
+      'href': 'https://drive.google.com/drive/folders/1sLry2UPmM75EAUTkdj1S5CVvdMpvcA6g?usp=sharing' }
   ],
 
   schedule: [
@@ -97,6 +97,28 @@ export default {
 
     { 'person': 'judge',
       'color': 'red' }
-  ]
+  ],
+
+  projects: [
+    { 'name': 'Methodology',
+      'href': 'http://bit.ly/methodologyspec' },
+
+    { 'name': 'Testing',
+      'href': 'http://bit.ly/testingspec' },
+
+    { 'name': 'Use Case Diagrams',
+      'href': 'http://bit.ly/usecasediagrams' },
+
+    { 'name': 'Wireframe',
+      'href': 'http://bit.ly/bcswireframe' },
+  ],
+
+  submission: {
+    link: {
+      'name': 'Submission',
+      'href': 'http://bit.ly/submitblueprint'
+    },
+    guidelines: ['Complete at least three of the required docs', 'Zip them up into a .zip file', 'Fill out the submission form' ]
+  }
 };
 

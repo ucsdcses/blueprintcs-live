@@ -33,11 +33,15 @@ export default {
 </script>
 
 <style lang="sass">
+    @import '../../sass/global'
+
     .time
         min-width: 132px
         text-align: center
+        font-weight: bold
+        color: #6C93CC
 
-    @media screen and (max-width: 576px)
+    @media screen and (max-width: $small)
         .tri-col li
             width: fit-content
 </style>

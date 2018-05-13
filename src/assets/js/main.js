@@ -9,6 +9,8 @@ import box from './components/box.vue';
 import schedule from './components/schedule.vue';
 import prizes from './components/prizes.vue';
 import shirts from './components/shirts.vue';
+import linklist from './components/linklist.vue';
+import submission from './components/submission.vue';
 
 const nav = new Vue({
     el: '#nav',
@@ -39,13 +41,18 @@ const main = new Vue({
         'box': box,
         'schedule': schedule,
         'prizes': prizes,
-        'shirts': shirts
+        'shirts': shirts,
+        'linklist': linklist,
+        'submission': submission
     },
     data() {
         return {
             schedule: site_data.schedule,
             prizes: site_data.prizes,
-            shirts: site_data.shirts
+            shirts: site_data.shirts,
+            projects: site_data.projects,
+            submission: site_data.submission
+
         };
     }
 });

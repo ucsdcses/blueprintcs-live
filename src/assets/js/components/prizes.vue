@@ -1,8 +1,8 @@
 <template>
   <dl>
     <template v-for="(prize, idx) in prizes">
-      <dt :class="criteria">{{ prize.criteria }}</dt>
-      <dd :class="prize">
+      <dt :class="prize.criteria">{{ prize.criteria }}</dt>
+      <dd :class="prize.prize">
         <template v-for="(p, i) in prize.prize">
           {{ prize.prize[i] }}<br />
         </template>
@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import '../../sass/global'
+
   dl
     display: grid
     grid-template-columns: auto 1fr
@@ -42,4 +44,15 @@ export default {
     grid-column: 2
     width: fit-content
     margin: 0
+
+  @media screen and (max-width: $small)
+    dl
+      grid-template-columns: 1fr
+      grid-gap: 0
+    dd
+      grid-column: 1
+      margin-left: 1rem
+
+      &:not(:last-child)
+        margin-bottom: 1.5em
 </style>

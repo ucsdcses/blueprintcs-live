@@ -7,7 +7,6 @@ html
     font-size: 1em
 
 body
-    // background-color: #C3EFFE
     background-image: url('/assets/img/background.jpg')
     background-attachment: fixed
     background-size: cover
@@ -34,7 +33,7 @@ main
         align-items: flex-start
         align-content: flex-start
     h1
-        font-family: $title
+        font-family: $bigtitle
         color: $blue
         text-align: center
         font-weight: normal
@@ -58,14 +57,30 @@ main
             .title
                 font-weight: bold
 
-@media screen and (max-width: 992px)
+
+a.buttonLink
+  text-decoration: none
+  background: $blue
+  border-radius: 5px
+  color: white
+  padding: 0.5em
+  text-align: center
+  margin: 5px
+  height: fit-content
+  align-self: center
+  line-height: 1.5em
+
+  &:hover
+    background: $darkblue
+
+@media screen and (max-width: $large)
 
     .tri-col
         padding-left: 1rem
         padding-right: 1rem
 
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: $medium)
 
     body
         grid: [row1-start] "nav" [row1-end] [row2-start] "main" [row2-end]
@@ -76,23 +91,28 @@ main
     .hidden-mobile
         height: 0
 
-@media screen and (max-width: 576px)
+@media screen and (max-width: $small)
 
-    ul.tri-col
-        li
-            flex-wrap: wrap
-            align-items: center
-            line-height: 1.5em
-            margin-left: auto
-            margin-right: auto
-            margin-bottom: 1.5rem
-            padding: 5px 3px
-            width: auto
+    main
 
-            span
-                text-align: center
+        ul.tri-col
+            li
+                flex-wrap: wrap
+                align-items: center
+                line-height: 1.5em
+                margin-left: auto
+                margin-right: auto
+                margin-bottom: 1.5rem
+                padding: 5px 3px
+                width: auto
 
-            .title
-                order: -1
-                flex: 1 0 100%
+                span
+                    text-align: center
 
+                .title
+                    order: -1
+                    flex: 1 0 100%
+
+        ul
+            padding-left: 1rem
+            padding-right: 1rem

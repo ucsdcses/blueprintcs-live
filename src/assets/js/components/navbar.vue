@@ -64,7 +64,7 @@ export default {
       background: white
       box-shadow: 0 0.5em 0 0 white, 0 1em 0 0 white
 
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $medium)
 
     nav
       height: auto
@@ -79,6 +79,11 @@ export default {
 
     .nav-logo
       max-height: 5rem
+      padding: 0
+
+  @media screen and (max-width: $small)
+    main
+      margin: 0 0.5rem 0 0.5rem
 
 
 </style>

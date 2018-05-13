@@ -33,7 +33,7 @@ article
   box-shadow: 0 2px 16px $shadow
   margin-bottom: 2rem
   &.full
-    max-width: 1200px
+    max-width: 1000px
     min-width: 75%
     margin-left: auto
     margin-right: auto
@@ -50,7 +50,7 @@ h1
     margin-left: auto
     margin-right: auto
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: $medium)
 
   article
     max-width: 720px
