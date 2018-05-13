@@ -1,11 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
   entry: './src/assets/js/main.js',
   output: {
-    filename: 'main.js',
+    filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'public')
   },
   resolve: {
@@ -29,5 +31,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [ new VueLoaderPlugin() ]
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlPlugin({
+      template: 'src/index.html'
+    })
+  ],
+  optimization: {
+    splitChunks: { chunks: 'all' },
+    runtimeChunk: true
+  }
 };

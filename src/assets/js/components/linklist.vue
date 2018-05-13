@@ -2,6 +2,7 @@
   <div>
       <a class="buttonLink" v-for="(link, idx) in links"
         :key="'link' + idx"
+        target="_blank"
         :href="link.href">
         {{ link.name }}
       </a>

@@ -15,7 +15,10 @@ export default {
       'href': 'https://drive.google.com/drive/folders/1sLry2UPmM75EAUTkdj1S5CVvdMpvcA6g?usp=sharing' },
 
     { 'name': 'Opening Slides',
-      'href': 'https://drive.google.com/file/d/1Of_MtpuXgu9EU5HDJ2Ptey3e1fSUnroc/view?usp=sharing' }
+      'href': 'https://drive.google.com/file/d/1Of_MtpuXgu9EU5HDJ2Ptey3e1fSUnroc/view?usp=sharing' },
+
+    { 'name': 'Workshop 1 Materials',
+      'href': 'https://drive.google.com/drive/folders/1C90k3vXaWt3fD4W-AndrBGGSduLY8FoF?usp=sharing' }
   ],
 
   schedule: [

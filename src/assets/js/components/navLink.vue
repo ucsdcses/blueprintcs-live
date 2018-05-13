@@ -59,5 +59,5 @@ export default {
 
     svg
       float: right
-      margin-right: 1.5rem
+      margin-right: 1rem
 </style>

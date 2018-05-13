@@ -29,7 +29,6 @@ const paths = {
     dist: {
         base: 'public',
         get assets() { return path.join(this.base, 'assets') },
-        get html() { return this.base },
         get css() { return path.join(this.assets, 'css') },
         get js() { return this.base },
         get img() { return path.join(this.assets, 'img') }
@@ -58,15 +57,6 @@ function js() {
 }
 const js_task = gulp.task(js);
 
-function html() {
-    return gulp.src(paths.source.html)
-        .pipe(gulp.dest(paths.dist.base))
-        .pipe(sync.reload({
-            stream: true
-        }));
-}
-const html_task = gulp.task(html);
-
 function img() {
     return gulp.src(paths.source.img)
         .pipe(gulp.dest(paths.dist.img))
@@ -94,13 +84,12 @@ function init_watch() {
     });
 
     gulp.watch([paths.source.sass, paths.source.components], css);
-    gulp.watch([paths.source.js, paths.source.components], js);
-    gulp.watch([paths.source.html, paths.source.components], html);
+    gulp.watch([paths.source.js, paths.source.html, paths.source.components], js);
     gulp.watch(paths.source.favicon, favicon);
     gulp.watch(paths.source.img, img);
 }
 
-const preReqs = gulp.parallel(css, js, html, favicon, img);
+const preReqs = gulp.parallel(css, js, favicon, img);
 gulp.task('serve', gulp.series(preReqs, init_watch));
 
 gulp.task('default', preReqs);
