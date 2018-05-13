@@ -18,7 +18,10 @@ export default {
       'href': 'https://drive.google.com/file/d/1Of_MtpuXgu9EU5HDJ2Ptey3e1fSUnroc/view?usp=sharing' },
 
     { 'name': 'Workshop 1 Materials',
-      'href': 'https://drive.google.com/drive/folders/1C90k3vXaWt3fD4W-AndrBGGSduLY8FoF?usp=sharing' }
+      'href': 'https://drive.google.com/drive/folders/1C90k3vXaWt3fD4W-AndrBGGSduLY8FoF?usp=sharing' },
+
+    { 'name': 'Workshop 2 Materials',
+      'href': 'https://pushpakrajgautam.github.io/blueprintcs-workshop/' }
   ],
 
   schedule: [
