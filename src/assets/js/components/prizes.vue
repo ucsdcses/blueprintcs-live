@@ -1,27 +1,18 @@
 <template>
- <list
-  :name="name"
-  listClass="dual-col"
-  :items="prizes"
-  :classes="classes" />
+  <dl>
+    <template v-for="(prize, idx) in prizes">
+      <dt :class="criteria">{{ prize.criteria }}</dt>
+      <dd :class="prize">
+        <template v-for="(p, i) in prize.prize">
+          {{ prize.prize[i] }}<br />
+        </template>
+      </dd>
+    </template>
+  </dl>
 </template>
 
 <script>
-import list from './list.vue';
-
 export default {
-  components: {
-    list
-  },
-  data() {
-    return {
-      name: 'prizes',
-      classes: {
-        left: 'criteria',
-        right: 'prize'
-      }
-    };
-  },
   props: {
     prizes: {
       type: Array,
@@ -32,4 +23,23 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  dl
+    display: grid
+    grid-template-columns: auto 1fr
+    grid-gap: 1.5em
+    line-height: 1.5em
+    margin-left: auto
+    margin-right: auto
+    padding-left: 2rem
+    padding-right: 2rem
+    width: fit-content
+  dt
+    font-weight: bold
+    grid-column: 1
+    width: fit-content
+    margin: 0
+  dd
+    grid-column: 2
+    width: fit-content
+    margin: 0
 </style>

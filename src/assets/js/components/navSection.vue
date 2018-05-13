@@ -15,6 +15,7 @@ export default {
     @import '../../sass/global'
 
     h1
+        font-family: $title
         padding-left: 1rem
         text-transform: uppercase
         font-size: 0.9rem

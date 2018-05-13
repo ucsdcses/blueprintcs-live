@@ -1,7 +1,7 @@
 <template>
   <list
     :name="name"
-    listClass="tri-col"
+    :listClass="['tri-col', 'shirtlist']"
     :items="shirts"
     :classes="classes" />
 </template>
@@ -50,5 +50,8 @@ export default {
 
 .person, .color
   text-transform: capitalize
+
+.shirtlist
+  font-weight: bold
 
 </style>

@@ -32,8 +32,12 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
+    .time
+        min-width: 132px
+        text-align: center
+
     @media screen and (max-width: 576px)
-        li
+        .tri-col li
             width: fit-content
 </style>

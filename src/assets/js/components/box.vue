@@ -28,7 +28,7 @@ article
   min-width: 48%
   max-width: 48%
   background: white
-  border: 1px solid $darkblue
+  border: 2px solid $lightblue
   border-radius: 5px
   box-shadow: 0 2px 16px $shadow
   margin-bottom: 2rem
@@ -39,6 +39,7 @@ article
     margin-right: auto
 
 h1
+  font-family: $boxtitle
   text-transform: capitalize
 
 @media screen and (max-width: 992px)

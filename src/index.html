@@ -17,7 +17,7 @@
 
   <body>
     <navbar id="nav">
-      <img slot="header" class="nav-logo" src="assets/img/nav_logo.jpg">
+      <img slot="header" class="nav-logo" src="assets/img/logo.png">
       <nav-section name="countdown">
         <countdown :time="countdown.time" />
       </nav-section>
@@ -31,17 +31,17 @@
     </navbar>
     <main id="main">
       <h1>Welcome to BlueprintCS 2018!</h1>
-      <section id="schedule">
-        <box name="schedule" full>
-          <schedule :schedule="schedule" />
-        </box>
-      </section>
       <section>
         <box name="shirt colors">
           <shirts :shirts="shirts" />
         </box>
         <box name="prizes">
           <prizes :prizes="prizes" />
+        </box>
+      </section>
+      <section id="schedule">
+        <box name="schedule" full>
+          <schedule :schedule="schedule" />
         </box>
       </section>
     </main>

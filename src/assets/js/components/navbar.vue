@@ -41,6 +41,7 @@ export default {
     color: $offwhite
 
   .nav-logo
+    padding: 0.75rem 0.75rem 0 0.75rem
     max-width: 17rem
 
   .nav-expand

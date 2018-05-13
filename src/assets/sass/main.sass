@@ -7,7 +7,12 @@ html
     font-size: 1em
 
 body
-    background: $offwhite
+    // background-color: #C3EFFE
+    background-image: url('/assets/img/background.jpg')
+    background-attachment: fixed
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: right center
     color: $text-color
     font-family: $sans-serif
     margin: 0
@@ -20,7 +25,7 @@ body
     display: none
 
 main
-    margin: 2rem 1rem 0 1rem
+    margin: 0 2rem 0 2rem
     grid-area: main
     section
         display: flex
@@ -29,7 +34,10 @@ main
         align-items: flex-start
         align-content: flex-start
     h1
+        font-family: $title
+        color: $blue
         text-align: center
+        font-weight: normal
 
 
     ul
@@ -79,6 +87,7 @@ main
             margin-right: auto
             margin-bottom: 1.5rem
             padding: 5px 3px
+            width: auto
 
             span
                 text-align: center
